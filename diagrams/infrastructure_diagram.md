@@ -1,0 +1,11 @@
+graph TD;
+    A[VPC] -->|has| B[Public Subnet];
+    A -->|has| C[Private Subnet];
+    B -->|hosts| D[Load Balancer];
+    C -->|hosts| E[Microservices];
+    E -->|connects to| F[Database];
+    F -->|logs to| G[Logging Service];
+    E -->|uses| H[Message Queue];
+    H -->|for| I[Event Processing];
+    J[Security Group] -->|protects| E;
+    K[IAM Role] -->|grants access| E;
